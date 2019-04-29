@@ -1,7 +1,7 @@
 import decode from 'jwt-decode';
 export default class AuthService {
     constructor(domain) {
-        this.domain = domain || 'http://localhost:5000/api'
+        this.domain = domain || 'https://dilogflowauth.herokuapp.com/api'
         this.fetch = this.fetch.bind(this)
         this.login = this.login.bind(this)
         this.getProfile = this.getProfile.bind(this)
@@ -9,7 +9,7 @@ export default class AuthService {
 
     login(email, password) {
         // Get a token
-        return this.fetch(`${this.domain}/login`, {
+        return this.fetch(`${this.domain}/dialogflow-login`, {
             method: 'POST',
             body: JSON.stringify({
                 email,
